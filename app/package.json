@@ -1,0 +1,57 @@
+{
+  "name": "scab-app",
+  "version": "1.0.0",
+  "description": "Simple cab management electron app",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron .",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "keywords": [],
+  "author": "Luk2010",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@electron/remote": "^1.0.4",
+    "electron": "^12.0.0",
+    "jquery": "^3.5.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^7.0.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "scab_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
