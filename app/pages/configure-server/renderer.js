@@ -1,5 +1,9 @@
 const $ = require('jquery')
-const bootstrap = require('bootstrap')
 
-console.log('configure server page')
+$(() => {
+    $('#configureForm').on('submit', (e) => {
+        e.preventDefault()
+        console.log('saving data')
+    })
+})
 

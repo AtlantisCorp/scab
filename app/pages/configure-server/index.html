@@ -11,21 +11,30 @@
 <body>
     <div class="container h-100">
         <div class="row h-100">
-            <div class="col"></div>
-            <div class="col align-self-center">
+            <div class="col-2"></div>
+            <div class="col-8 align-self-center">
                 <div class="card card-block">
                     <div class="card-body">
-                        <div class="card-title">Configuration du serveur</div>
+                        <div class="card-title">
+                            <h3>Configuration</h3>
+                        </div>
                         <p class="card-text">
-                            <form>
-                                <input type="text" placeholder="Adresse du serveur" name="serverHost" />
-                                <input type="number" value="8888" name="serverPort" />
+                            <form id="configureForm">
+                                <div class="mb-2">
+                                    <label for="serverHost" class="form-label">Adresse du serveur</label>
+                                    <input class="form-control" type="text" placeholder="Adresse du serveur" id="serverHost" name="serverHost" />
+                                </div>
+                                <div class="mb-2">
+                                    <label for="serverPort" class="form-label">Port du serveur</label>
+                                    <input class="form-control" type="number" value="8888" id="serverPort" name="serverPort" />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Valider</button>
                             </form>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col"></div>
+            <div class="col-2"></div>
          </div>
     </div>
 
