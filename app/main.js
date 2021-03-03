@@ -3,6 +3,7 @@ require('@electron/remote/main').initialize()
 
 const Store = require('electron-store')
 global.store = new Store()
+global.store.clear()
 
 function createWindow() {
     const win = new BrowserWindow({
