@@ -2,6 +2,8 @@ const fs = require('fs')
 
 module.exports = class extends HTMLElement {
     constructor(template, isShadow = false) {
+        super()
+        
         this.template = template
         this.isShadow = isShadow
 
