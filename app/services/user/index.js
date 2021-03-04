@@ -2,7 +2,7 @@ const ServerService = require('../server')
 const remote = require('@electron/remote')
 const store = remote.getGlobal('store')
 
-export default class {
+module.exports = class {
     constructor() {
         this.server = new ServerService()
     }
@@ -13,7 +13,7 @@ export default class {
             password: password
         })
 
-        return response.json().token
+        return response
     }
 
     setToken(token) {
@@ -34,6 +34,12 @@ export default class {
     }
 
     async delete() {
-        return this.server.sendToken('/api/v1/user', 'DELETE', {})
+        const response = await this.server.sendToken('/api/v1/user', 'DELETE')
+        this.logout()
+        return response
+    }
+
+    async infos() {
+        return this.server.sendToken('/api/v1/user', 'GET')
     }
 }

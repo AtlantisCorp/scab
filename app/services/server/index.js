@@ -1,9 +1,7 @@
-import { session } from "electron"
-
 const remote = require("@electron/remote")
 const store = remote.getGlobal("store")
 
-export default class {
+module.exports = class {
     constructor() {
         this.serverHost = store.get('serverHost')
         this.serverPort = store.get('serverPort')
@@ -14,18 +12,18 @@ export default class {
         }
     }
 
-    async sendNoToken(endpoint, method, body) {
-        return fetch(this.serverHost + ':' + this.serverPort + endpoint, {
+    async sendNoToken(endpoint, method, body = {}) {
+        return fetch('https://' + this.serverHost + ':' + this.serverPort + endpoint, {
             method: method,
             body: body
         })
     }
 
-    async sendToken(endpoint, method, body) {
+    async sendToken(endpoint, method, body = {}) {
         const headers = new Headers()
         headers.set('Authorization', 'Bearer ' + this.token)
 
-        return fetch(this.serverHost + ':' + this.serverPort + endpoint, {
+        return fetch('https://' + this.serverHost + ':' + this.serverPort + endpoint, {
             method: method,
             body: body,
             headers: headers
