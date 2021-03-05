@@ -15,6 +15,11 @@ class ScabLogin extends Base {
         this.getElementsByTagName('form').item(0).addEventListener('submit', (e) => {
             e.preventDefault()
 
+            document
+                .getElementById('loading-spinner')
+                .classList
+                .toggle('d-none')
+
             const payload = {
                 username: $('#username').val(),
                 password: $('#password').val()
@@ -42,6 +47,13 @@ class ScabLogin extends Base {
             .catch((error) => {
                 console.log('error = ', error)
                 document.querySelector('scab-alert-error').content = error
+            })
+
+            .finally(() => {
+                document
+                    .getElementById('loading-spinner')
+                    .classList
+                    .toggle('d-none')
             })
         })
     }
