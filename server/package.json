@@ -1,0 +1,24 @@
+{
+  "name": "scab-server",
+  "version": "1.0.0",
+  "description": "The server node app for the scab-app",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs",
+    "start-db": "mkdir dbfiles && mongod --dbpath \"./dbfiles\""
+  },
+  "author": "luk2010",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.19"
+  }
+}

@@ -1,7 +1,9 @@
 const path = require('path')
 const Base = require('../base')
 const UserService = require('../../services/user')
-const AlertErrorComponent = require('../alert-error')
+
+require('../alert-error')
+require('../register')
 
 class ScabLogin extends Base {
     constructor() {
@@ -11,6 +13,14 @@ class ScabLogin extends Base {
 
     connectedCallback() {
         super.connectedCallback()
+
+        document.getElementById('show-register').addEventListener('click', (e) => {
+            e.preventDefault()
+
+            const registerComponent = document.createElement('scab-register')
+            this.parentElement.appendChild(registerComponent)
+            this.parentElement.removeChild(this)
+        })
 
         this.getElementsByTagName('form').item(0).addEventListener('submit', (e) => {
             e.preventDefault()
@@ -27,17 +37,17 @@ class ScabLogin extends Base {
 
             this.userService.login(payload.username, payload.password)
 
-            .then((response) => {
-                if (!response.ok) {
-                    console.log(response)
-                    return 
+            .then(async (response) => {
+                if (response.status !== 200) {
+                    const error = await response.text()
+                    throw new Error(error)
                 }
 
-                const token = response.json().token 
+                const body = await response.json()
+                const token = body.token 
 
                 if (!token) {
-                    console.log('Null token.')
-                    return 
+                    throw new Error('Null token.') 
                 }
 
                 this.userService.setToken(token)

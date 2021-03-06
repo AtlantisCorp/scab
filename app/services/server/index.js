@@ -13,19 +13,26 @@ module.exports = class {
     }
 
     async sendNoToken(endpoint, method, body = {}) {
-        return fetch('https://' + this.serverHost + ':' + this.serverPort + endpoint, {
+        const headers = new Headers()
+        headers.set('Accept', 'application/json')
+        headers.set('Content-Type', 'application/json')
+
+        return fetch('http://' + this.serverHost + ':' + this.serverPort + endpoint, {
             method: method,
-            body: body
+            headers: headers,
+            body: JSON.stringify(body)
         })
     }
 
     async sendToken(endpoint, method, body = {}) {
         const headers = new Headers()
         headers.set('Authorization', 'Bearer ' + this.token)
+        headers.set('Accept', 'application/json')
+        headers.set('Content-Type', 'application/json')
 
-        return fetch('https://' + this.serverHost + ':' + this.serverPort + endpoint, {
+        return fetch('http://' + this.serverHost + ':' + this.serverPort + endpoint, {
             method: method,
-            body: body,
+            body: JSON.stringify(body),
             headers: headers
         })
     }
