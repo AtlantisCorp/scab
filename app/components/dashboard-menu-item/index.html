@@ -1,0 +1,51 @@
+<template>
+    <style>
+        @import 'styles.css';
+
+        .item {
+            width: 100%;
+            border: none;
+            margin: 0;
+            padding: 0.8rem;
+            padding-left: 1rem;
+            border-bottom: 5px solid white;
+        }
+
+        .item > i {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        .item > span {
+            color: rgba(0, 0, 0, 0.7);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 600;
+            font-size: smaller;
+        }
+
+        .item:hover {
+            background-color: rgba(20, 70, 220, 0.4);
+            color: rgba(255, 255, 255, 1.0);
+            border-bottom: 5px solid rgba(20, 70, 220, 0);
+        }
+
+        .item:hover > i, 
+        .item:hover > span {
+            color: white;
+        }
+
+        .item.active {
+            background-color: rgba(30, 90, 240, 1.0);
+            color: rgba(255, 255, 255, 1.0);
+            border-bottom: 5px solid rgba(20, 70, 220, 1.0);
+        }
+
+        .item.active > i, 
+        .item.active > span {
+            color: white;
+        }
+    </style>
+    <li class="item d-flex align-items-center" id="item-li">
+        <i class="bi mr-3" id="icon"></i>
+        <span id="title"></span>
+    </li>
+</template>

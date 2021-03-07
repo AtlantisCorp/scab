@@ -1,0 +1,76 @@
+<template>
+    <style>
+        @import 'styles.css';
+
+        .menu {
+            width: 100%;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu > .brand {
+            width: 100%;
+            border: none;
+            margin: 0;
+            padding: 1rem;
+            align-items: center;
+        }
+
+        .menu > .brand > i {
+            color: black;
+            margin-right: 0.5rem;
+        }
+
+        .menu > .brand > span {
+            color: rgba(0, 0, 0, 0.6);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            font-size: large;
+        }
+    </style>
+
+    <ul class="menu">
+        <li class="brand d-flex">
+            <i class="bi bi-app"></i>
+            <span>SimCab</span>
+        </li>
+
+        <scab-dashboard-menu-item 
+            id="menu-dashboard" 
+            icon="bi-speedometer" 
+            title="Tableau de bord" 
+            active="true">
+        </scab-dashboard-menu-item>
+
+        <scab-dashboard-menu-item 
+            id="menu-calendar"
+            icon="bi-calendar-day" 
+            title="Agenda">
+        </scab-dashboard-menu-item>
+
+        <scab-dashboard-menu-item 
+            id="menu-patients"
+            icon="bi-person" 
+            title="Liste des Patients">
+        </scab-dashboard-menu-item>
+
+        <scab-dashboard-menu-item 
+            id="menu-messages"
+            icon="bi-chat-text" 
+            title="Messages">
+        </scab-dashboard-menu-item>
+
+        <scab-dashboard-menu-item 
+            id="menu-payments"
+            icon="bi-wallet2" 
+            title="Paiements">
+        </scab-dashboard-menu-item>
+
+        <scab-dashboard-menu-item 
+            id="menu-settings"
+            icon="bi-sliders" 
+            title="Réglages">
+        </scab-dashboard-menu-item>
+    </ul>
+</template>

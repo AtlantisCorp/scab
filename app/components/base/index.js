@@ -16,14 +16,13 @@ module.exports = class extends HTMLElement {
         }
 
         this.templateContent = element.content
+
+        if (this.isShadow) 
+            this.attachShadow({ mode: 'open' }).appendChild(this.templateContent.cloneNode(true))
     }
 
     connectedCallback() {
-        if (this.isShadow) {
-            this.attachShadow({ mode: 'open' })
-                .appendChild(this.templateContent.cloneNode(true))
-        } else {
+        if (!this.isShadow)
             this.appendChild(this.templateContent.cloneNode(true))
-        }
     }
 }

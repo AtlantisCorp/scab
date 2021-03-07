@@ -1,0 +1,29 @@
+<template>
+    <style>
+        @import 'styles.css';
+
+        div#menu {
+            max-width: 15rem;
+            padding-right: 0;
+            background: var(--color-primary);
+        }
+
+        div#content {
+            background-color: var(--color-background-primary);
+        }
+    </style>
+
+    <div class="row h-100">
+        <div class="col h-100" id="menu">
+            <scab-dashboard-menu id="dashboard-menu"></scab-dashboard-menu>
+        </div>
+        <div class="col h-100" id="rightside">
+            <div class="row" id="topbar">
+
+            </div>
+            <div class="row" id="content">
+
+            </div>
+        </div>
+    </div>
+</template>

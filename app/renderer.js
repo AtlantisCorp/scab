@@ -6,6 +6,11 @@ const UserService = require('./services/user')
 
 require(path.resolve(__dirname, 'components', 'alert-error'))
 require(path.resolve(__dirname, 'components', 'autocenter'))
+require(path.resolve(__dirname, 'components', 'component-load-error'))
+require(path.resolve(__dirname, 'components', 'dashboard'))
+require(path.resolve(__dirname, 'components', 'dashboard-cols'))
+require(path.resolve(__dirname, 'components', 'dashboard-menu'))
+require(path.resolve(__dirname, 'components', 'dashboard-menu-item'))
 require(path.resolve(__dirname, 'components', 'login'))
 require(path.resolve(__dirname, 'components', 'register'))
 require(path.resolve(__dirname, 'components', 'toggle-switch'))
@@ -39,7 +44,7 @@ class ScabMain extends HTMLElement {
             return 
         }
 
-        console.log('scab-main was here !')
+        this.append(document.createElement('scab-dashboard-cols'))
     }
 }
 
