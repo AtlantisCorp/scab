@@ -65,11 +65,18 @@ export default express.Router()
                     return 
                 }
 
+                const tokenSecret = process.env['jsonWebTokenSecret']
+
                 jsonwebtoken.sign({
                     timestamp: Date.now(),
                     userId: user._id
-                }, process.env['jsonWebTokenSecret'], (token) => {
-                    res.status(200).send(token)
+                }, tokenSecret, (err, token) => {
+                    if (err) {
+                        res.status(500).send('Error: jsonwebtoken.sign() failed.')
+                        return 
+                    }
+
+                    res.status(200).json({ token: token })
                 })
             })
         })

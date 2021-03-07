@@ -21,6 +21,10 @@ module.exports = class {
         this.server = new ServerService()
     }
 
+    token() {
+        return store.get('token')
+    }
+
     logout() {
         store.delete('token')
         this.server = new ServerService()

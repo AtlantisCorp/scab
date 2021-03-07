@@ -2,9 +2,6 @@ const path = require('path')
 const Base = require('../base')
 const UserService = require('../../services/user')
 
-require('../alert-error')
-require('../register')
-
 class ScabLogin extends Base {
     constructor() {
         super(path.resolve(__dirname, 'login.html'))
