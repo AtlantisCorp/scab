@@ -17,6 +17,7 @@ function createWindow() {
         }
     })
 
+    win.setAutoHideMenuBar(true)
     win.loadFile(`${__dirname}/index.html`)
 }
 
